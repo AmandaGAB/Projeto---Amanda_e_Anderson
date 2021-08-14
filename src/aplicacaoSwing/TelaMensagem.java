@@ -124,14 +124,14 @@ public class TelaMensagem {
 						JOptionPane.showMessageDialog(null, "selecione uma linha");
 					else {
 						//pegar o id na linha selecionada
-						String id = (String) table.getValueAt( table.getSelectedRow(), 0); //0=nome
+						int id = (Integer) table.getValueAt( table.getSelectedRow(), 0); //0=nome
 
 						Object[] options = { "Confirmar", "Cancelar" };
 						int escolha = JOptionPane.showOptionDialog(null, "Esta operação apagará a mensagem", "Alerta",
 								JOptionPane.DEFAULT_OPTION, 
 								JOptionPane.WARNING_MESSAGE, null, options, options[1]);
 						if(escolha == 0) {
-							Fachada.apagarMensagens(Integer.parseInt(id));
+							Fachada.apagarMensagens(id);
 							label.setText("exclusão realizada"); 
 						}
 						else
